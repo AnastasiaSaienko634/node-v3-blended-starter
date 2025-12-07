@@ -8,6 +8,7 @@ import { errorHandler } from './middleware/errorHandler.js';
 import authRouter from './routes/auth.js';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
+import usersRouter from './routes/users.js';
 const app = express();
 const PORT = process.env.PORT ?? 3030;
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 
 app.use(authRouter);
 app.use(productRouter);
+app.use(usersRouter);
 
 app.use(notFoundHandler);
 app.use(errors());
